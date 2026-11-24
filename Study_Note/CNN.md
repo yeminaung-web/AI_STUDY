@@ -4,18 +4,6 @@
 
 ---
 
-### Everyday Analogy
-
-Imagine trying to recognize an animal in the dark using a small flashlight:
-
-- **Step 1 (Tiny details):** You shine the small beam across the picture to spot fur texture, sharp claws, and pointed ears.
-- **Step 2 (Bigger parts):** Your brain connects those small clues together into a cat's face and paws.
-- **Step 3 (Final guess):** You put everything together and conclude that it is a cat.
-
-A CNN works the exact same way using small digital flashlights called filters.
-
----
-
 ### The 4 Main Building Blocks of a CNN
 
 1. **Convolutional Layer (The Pattern Scanner):** Slides a small grid (called a filter or kernel, usually $3 \times 3$ pixels) across the image to detect features like edges, corners, or colors.
