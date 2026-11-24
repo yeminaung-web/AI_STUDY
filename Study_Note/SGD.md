@@ -23,7 +23,7 @@ The advantage of SGD is if there is new data, we don’t have to start from the 
 | :--- | :--- | :--- | :--- |
 | **Batch GD** | All $N$ samples | Smooth, direct path to minimum | Too slow and memory-heavy for large datasets |
 | **Stochastic GD (SGD)** | $1$ random sample | Noisy, zig-zag path toward minimum | Very fast updates, but high variance near the minimum |
-| **Mini-Batch SGD** | $32$–$512$ samples | Stable path with mild noise | Best balance of GPU efficiency and convergence speed |
+| **Mini-Batch SGD** | $32$ – $512$ samples | Stable path with mild noise | Best balance of GPU efficiency and convergence speed |
 
 ### Advantages and Limitations
 
