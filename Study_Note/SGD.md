@@ -25,8 +25,9 @@ The advantage of SGD is if there is new data, we don’t have to start from the 
 | **Stochastic GD (SGD)** | $1$ random sample | Noisy, zig-zag path toward minimum | Very fast updates, but high variance near the minimum |
 | **Mini-Batch SGD** | $32$–$512$ samples | Stable path with mild noise | Best balance of GPU efficiency and convergence speed |
 
-Advantages and Limitations
-Fast initial progress: Because updates happen after every sample, the model starts improving immediately instead of waiting for a full pass over the data.
-Escapes shallow local minima: The randomness ("noise") in single-sample gradients can bounce parameters out of saddle points or poor local minima in non-convex loss surfaces.
-Noisy oscillations: Near the global minimum, the parameters continue oscillating rather than settling cleanly unless the learning rate $\eta$ is gradually decayed.
-Sensitive to feature scaling: Input features with different scales cause elongated loss contours, making SGD oscillate heavily unless features are normalized first.
+### Advantages and Limitations
+
+- **Fast initial progress:** Because updates happen after every sample, the model starts improving immediately instead of waiting for a full pass over the data.
+- **Escapes shallow local minima:** The randomness ("noise") in single-sample gradients can bounce parameters out of saddle points or poor local minima in non-convex loss surfaces.
+- **Noisy oscillations:** Near the global minimum, the parameters continue oscillating rather than settling cleanly unless the learning rate $\eta$ is gradually decayed.
+- **Sensitive to feature scaling:** Input features with different scales cause elongated loss contours, making SGD oscillate heavily unless features are normalized first.
