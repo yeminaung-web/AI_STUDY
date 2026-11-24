@@ -23,17 +23,18 @@ Every training round has two trips through the network:
 
 ---
 
-### The Chain Rule Made Simple
+### The Chain Rule Formula
 
-Backpropagation relies on a basic math idea called the Chain Rule. It breaks one big blame calculation into smaller, easy pieces multiplied together:
+Backpropagation uses the chain rule of calculus to break one big gradient calculation into three smaller derivatives multiplied together:
 
 $$
-\text{Total Blame on Weight} = (\text{Final Error}) \times (\text{Layer Sensitivity}) \times (\text{Input Size})
+\frac{\partial L}{\partial w} = \frac{\partial L}{\partial \hat{y}} \cdot \frac{\partial \hat{y}}{\partial z} \cdot \frac{\partial z}{\partial w}
 $$
 
-- **Final Error:** How wrong the output was.
-- **Layer Sensitivity:** How much the neuron's output changes when its input changes.
-- **Input Size:** How strong the signal coming into that weight was (stronger inputs carry more responsibility).
+- **$\frac{\partial L}{\partial w}$:** The final gradient for weight $w$ (tells you how much the loss changes when you change this weight).
+- **$\frac{\partial L}{\partial \hat{y}}$:** How much the loss $L$ changes when the prediction $\hat{y}$ changes.
+- **$\frac{\partial \hat{y}}{\partial z}$:** The derivative of the activation function (such as ReLU or Sigmoid) at pre-activation $z$.
+- **$\frac{\partial z}{\partial w}$:** How much the weighted sum $z$ changes when weight $w$ changes (this equals the input value feeding into that weight).
 
 ---
 
