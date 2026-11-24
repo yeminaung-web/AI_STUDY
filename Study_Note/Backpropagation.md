@@ -1,6 +1,6 @@
 # Backpropagation
 
-**Backpropagation** (short for *backward propagation of errors*) is how a neural network learns from a wrong guess. After making a prediction, the network works **backward from the final answer to the start** to figure out which internal settings caused the mistake and how much to fix each one.
+**Backpropagation** (short for *backward propagation of errors*) is how a neural network learns from a wrong guess. After making a prediction, the network works backward from the final answer to the start to figure out which internal settings caused the mistake and how much to fix each one.
 
 ---
 
@@ -8,7 +8,7 @@
 
 Imagine a relay team of 4 people passing a secret number down a line, each multiplying it by their own secret rule. At the end, the final number is wrong.
 
-To fix it, you start at the **last person** and work backward to the **first person**, asking each one: *"How much did your step push the final answer off target?"* Once everyone knows their share of the mistake, they adjust their rule for the next round.
+To fix it, you start at the last person and work backward to the first person, asking each one: *"How much did your step push the final answer off target?"* Once everyone knows their share of the mistake, they adjust their rule for the next round.
 
 ---
 
@@ -19,13 +19,13 @@ Every training round has two trips through the network:
 1. **Forward Pass (Making a Guess):** Data enters from the left, passes through each layer, and comes out on the right as a prediction.
 2. **Calculate the Error (Loss):** The network checks how far its prediction is from the true answer.
 3. **Backward Pass (Sharing the Blame):** Starting from the error at the end, the network moves backward layer by layer to calculate how responsible each weight was for the mistake.
-4. **Update Weights:** An optimizer (like **SGD**) uses that information to tweak every weight so the error shrinks next time.
+4. **Update Weights:** An optimizer (like SGD) uses that information to tweak every weight so the error shrinks next time.
 
 ---
 
 ### The Chain Rule Made Simple
 
-Backpropagation relies on a basic math idea called the **Chain Rule**. It breaks one big blame calculation into smaller, easy pieces multiplied together:
+Backpropagation relies on a basic math idea called the Chain Rule. It breaks one big blame calculation into smaller, easy pieces multiplied together:
 
 $$
 \text{Total Blame on Weight} = (\text{Final Error}) \times (\text{Layer Sensitivity}) \times (\text{Input Size})
