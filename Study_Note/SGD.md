@@ -50,3 +50,5 @@ $$
 - **Uses very little memory:** Only needs to hold one example (or a small batch) in memory at a time.
 - **Can escape bad spots:** Because the path is slightly random and bouncy, it does not easily get stuck in shallow dead-ends.
 - **Wobbles near the finish line:** Even when close to the best answer, it keeps bouncing around unless you slowly shrink the learning rate ($\eta$).
+
+- Link to Study : Statquest SGD (https://www.youtube.com/watch?v=vMh0zPT0tLI&t=400s)
