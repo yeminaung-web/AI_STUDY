@@ -42,3 +42,8 @@ Then we pass through the final two number to the fully connected layer. Since th
 ![So far, the translation is correct,](Attachments/1756FB7A-A594-4DCC-866E-0EDC858DE73E.jpeg)  
 The decoder won’t stop until it select EOS as output. Then the same process start with vamos.  
 ![Value 128](Attachments/D46FD269-395E-4AD4-B58D-DEFA1D1D7B2D.jpeg)  
+
+
+Link to study : https://www.youtube.com/watch?v=zxQyTK8quyY&t=1766s
+https://www.youtube.com/watch?v=wjZofJX0v4M&t=1015s
+https://www.youtube.com/watch?v=eMlx5fFNoYc&t=1097s
