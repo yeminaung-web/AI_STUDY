@@ -1,33 +1,52 @@
-# SGD
-Stochastic Gradient Descent (SGD) is an iterative optimization algorithm used in machine learning to minimize a loss function by updating model parameters using one randomly selected training sample at each step, rather than computing gradients across the entire dataset.
-How SGD Works
-In standard (Batch) Gradient Descent, the model evaluates all training examples before making a single parameter update. On large datasets, this is slow and memory-intensive.
-SGD solves this by shuffling the dataset each epoch and updating the parameters immediately after evaluating the loss gradient on a single sample
+# Stochastic Gradient Descent (SGD)
 
-Instead of linear and logistic regression  
-  
-![...to get this](Attachments/72179E9F-CEBC-4311-AEBD-E3CCF08B6015.jpeg)  
-![Sum of squared residuals = (Observed Height - (intercept + slope × Weight))2](Attachments/6166E23F-5772-4B23-8C51-BAA15EDA0FE9.jpeg)  
-![a intercepa](Attachments/1AE65B13-54F8-4F15-9CB6-EC57C75B8EF0.jpeg)  
-And repeat the derivative until the steps become small  
-Let’s suppose we have to calculate 1,000,000 terms for 23,000 derivatives we have to calculate 23,000,000,000 terms. And we need at least 1,000 steps. We need many steps.  
-So SGD reduce the computing terms by factor of 3.  
-Good to use where there are redundancy (စုဖွဲ့မှု) in dataset. Choose one data and do the math same as Gradient Descent.   
-Changing learning rate is called sechdule.   
-![Sum of squared residuals =](Attachments/83A8C20F-F1BB-4F85-9C0F-A768BD4EEFF2.jpeg)  
-Do the math and we got new intercept and new slope then we pick another data from different redundancy and do the math again. Repeat again and again with new data.  
-We can also use 3 data per step which is called mini-batch. Much faster.  
-The advantage of SGD is if there is new data, we don’t have to start from the scratch, we can simply calculate the new slope and intercept.
+**Stochastic Gradient Descent (SGD)** is a fast learning method that helps a machine learning model fix its mistakes step by step. Instead of studying the entire dataset before making one small improvement, SGD looks at just one random example at a time and updates the model right away.
 
-| Variant | Samples per Update | Convergence Behavior | Primary Trade-off |
+---
+
+### Everyday Analogy
+
+Imagine you are standing on top of a mountain in thick fog and want to reach the lowest valley:
+
+- **Standard Gradient Descent:** You measure the slope of the entire mountain before taking a single step. It is accurate, but way too slow.
+- **SGD:** You quickly check the ground right under your feet and immediately take one step downhill. Your path wobbles a bit, but you start moving down the mountain right away.
+
+---
+
+### How SGD Works
+
+1. **Shuffle the data:** Mix up all training examples so the model does not memorize the order.
+2. **Pick one example:** Grab a single data point and let the model make a guess.
+3. **Measure the mistake:** Compare the model's guess to the real answer (this mistake is called the loss).
+4. **Adjust and repeat:** Slightly tweak the model's internal settings (weights) to make a better guess next time, then move to the next example.
+
+---
+
+### The Update Formula
+
+$$
+\theta = \theta - \eta \nabla_\theta J(\theta; x^{(i)}, y^{(i)})
+$$
+
+- **$\theta$ (Parameters):** The model's current weights and biases that we want to update.
+- **$\eta$ (Learning Rate):** How big of a step we take. Too big and we overshoot the valley; too small and learning takes forever.
+- **$\nabla_\theta J(\theta; x^{(i)}, y^{(i)})$ (Gradient):** The slope of the loss function $J$ calculated using just one training example $(x^{(i)}, y^{(i)})$.
+
+---
+
+### Comparing the 3 Types of Gradient Descent
+
+| Method | Examples Checked per Step | Path Downhill | Best For |
 | :--- | :--- | :--- | :--- |
-| **Batch GD** | All $N$ samples | Smooth, direct path to minimum | Too slow and memory-heavy for large datasets |
-| **Stochastic GD (SGD)** | $1$ random sample | Noisy, zig-zag path toward minimum | Very fast updates, but high variance near the minimum |
-| **Mini-Batch SGD** | $32$ – $512$ samples | Stable path with mild noise | Best balance of GPU efficiency and convergence speed |
+| **Batch GD** | Every example in the dataset | Very smooth and straight | Small datasets only (too slow for big data) |
+| **Stochastic GD (SGD)** | 1 random example | Bouncy and zig-zag | Very fast updates on huge datasets |
+| **Mini-Batch SGD** | A small group (32 to 512) | Mostly smooth with tiny bounces | Most real-world deep learning (best balance) |
 
-### Advantages and Limitations
+---
 
-- **Fast initial progress:** Because updates happen after every sample, the model starts improving immediately instead of waiting for a full pass over the data.
-- **Escapes shallow local minima:** The randomness ("noise") in single-sample gradients can bounce parameters out of saddle points or poor local minima in non-convex loss surfaces.
-- **Noisy oscillations:** Near the global minimum, the parameters continue oscillating rather than settling cleanly unless the learning rate $\eta$ is gradually decayed.
-- **Sensitive to feature scaling:** Input features with different scales cause elongated loss contours, making SGD oscillate heavily unless features are normalized first.
+### Good Points & Weak Points
+
+- **Starts learning immediately:** Does not wait to read millions of examples before improving.
+- **Uses very little memory:** Only needs to hold one example (or a small batch) in memory at a time.
+- **Can escape bad spots:** Because the path is slightly random and bouncy, it does not easily get stuck in shallow dead-ends.
+- **Wobbles near the finish line:** Even when close to the best answer, it keeps bouncing around unless you slowly shrink the learning rate ($\eta$).
