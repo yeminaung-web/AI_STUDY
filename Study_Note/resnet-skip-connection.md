@@ -34,6 +34,7 @@ $$
 - **$x$:** Original input entering the block.
 - **$F(x, \{W_i\})$:** The residual change learned by the stacked layers with weights $W_i$.
 - **$W_s$:** Optional $1 \times 1$ layer used only when input and output dimensions do not match.
+- ![ResNet Diagram](Attachments/ResBlock.png)
 
 ---
 
