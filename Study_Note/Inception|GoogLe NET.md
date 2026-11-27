@@ -17,3 +17,11 @@ Let’s suppose we want to reduce 28 x 28 x 192 to 28 x 28 x 32 and we will be u
 5. How was GoogLeNet able to maintain a relatively small number of parameters despite its depth?
 
 As I mentioned above by using 1x1 filter, we can greatly reduced the parameter 10 times smaller and prevent parameter explosion as the network grew deeper and wider. Another thing is GoogLeNet use Global Average Pooling (GAP) rather than flattening the 7x7x1024 into massive dense layer, it average 7x7 into a single scalar which is 1x1x1024 before one lightweight linear classifier.
+
+6. What are the advantages and limitations of an Inception module?
+
+   Dimension	Advantages	Limitations
+Feature Extraction	Captures multi-scale patterns (1 \times 1, 3 \times 3, 5 \times 5, and pooling) simultaneously within the same layer.	Over-compressing channels in 1 \times 1 bottlenecks can cause representational information loss.
+Architecture Design	Removes the need to manually pick a single optimal kernel size at each network stage.	Requires tuning 6 separate filter counts per module, making scaling and customization complex.
+Compute & Hardware	1 \times 1 bottlenecks slash parameters and FLOPs, enabling deeper and wider models.	Parallel branches and tensor concatenation create memory overhead, reducing GPU efficiency.
+Network Depth	Extra 1 \times 1 layers add ReLU non-linearities without increasing spatial filter size.	Lacks identity skip connections (in Inception-v1), leaving very deep stacks prone to gradient degradation.
