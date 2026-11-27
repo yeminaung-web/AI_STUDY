@@ -31,3 +31,5 @@ Complex hyperparameter tuning: Every Inception block requires manually choosing 
 Lower GPU efficiency (memory fragmentation): Splitting computation across 4 parallel branches and concatenating their outputs creates extra memory-read/write overhead, running slower on GPUs than uniform sequential blocks with the same FLOP count.
 Risk of representational bottleneck: Compressing channels too much in a 1x1 reduction layer can discard useful information before the 3x3 or 5x5 filters.
 No identity skip connections: Stacking very deep chains of Inception modules still faces gradient degradation but we can combine ResNet with Inception.
+
+Link to study: https://www.youtube.com/watch?v=b7kky27UkMI (basic)
