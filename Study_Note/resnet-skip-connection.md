@@ -85,3 +85,5 @@ Think of $x$ as a rough pencil sketch and $H(x)$ as the finished, shaded drawing
 7. How do skip connections improve gradient flow?
 
 In a standard deep network, the gradient must pass sequentially through every single layer and activation function on its way to the front. At each step, the gradient gets multiplied by small weights and activation functions. After passing through 50 or 100 layers, the gradient shrinks so much that it fades to almost nothing before reaching the earliest layers. Because a skip connection creates a direct shortcut around the layers, the backward error signal splits into two paths every time it reaches a residual block. In the main path, one copy of the error signal passes through the layers inside the block so they can update their weights and improve. In the shortcut, a second, untouched copy travels straight down the skip connection, completely bypassing layers and their activation functions. Then second copy added to the first copy and do the same process again and again until reach the front.
+
+Link to study: https://www.youtube.com/watch?v=Q1JCrG1bJ-A&t=850s
