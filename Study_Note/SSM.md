@@ -56,3 +56,5 @@ Originally rooted in control theory and signal processing, SSMs describe how a c
 * **Long-Context Sequence Modeling:** Processing long documents, logs, or multi-step trajectories where quadratic attention memory or compute becomes a bottleneck.
 * **Time-Series and Wearable Sensor Data:** Modeling continuous or sampled streams where temporal trends and noise filtering matter.
 * **Hybrid Architectures:** Combining SSM layers with attention or feedforward/convolutional blocks to get both linear sequence efficiency and strong local or exact retrieval capabilities.
+
+* Link to study: https://www.youtube.com/watch?v=HbZD0XoN5fc
